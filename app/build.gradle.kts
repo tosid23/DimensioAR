@@ -6,19 +6,22 @@ plugins {
 
 android {
     namespace = "com.sid.dimensio"
-    compileSdk = 36
+    compileSdk = libs.versions.compile.sdk.version.get().toInt()
 
     defaultConfig {
         applicationId = "com.sid.dimensio"
-        minSdk = 28
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = libs.versions.min.sdk.version.get().toInt()
+        targetSdk = libs.versions.target.sdk.version.get().toInt()
+        versionCode = libs.versions.version.code.get().toInt()
+        versionName = libs.versions.version.name.get()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
+        debug {
+            isDebuggable = true
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -36,10 +39,16 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
 dependencies {
+
+    implementation(project(":core:designsystem"))
+    implementation(project(":core:data"))
+    implementation(project(":feature:home"))
+    implementation(project(":feature:measure"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

@@ -21,3 +21,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "Dimensio"
 include(":app")
+include(":core:data")
+include(":core:designsystem")
+include(":core:widgets")
+include(":feature:home")
+include(":feature:measure")
