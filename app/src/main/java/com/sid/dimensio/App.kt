@@ -14,19 +14,17 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        //FirebaseApp.initializeApp(this)
 
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
 
-        FirebaseApp.initializeApp(this)
-
-        setFirebaseRemoteFlag()
+        //setFirebaseRemoteFlag()
 
     }
 
     private fun setFirebaseRemoteFlag() {
-
         val remoteConfig: FirebaseRemoteConfig = Firebase.remoteConfig
         val configSettings = remoteConfigSettings {
             minimumFetchIntervalInSeconds = 36/*3600*/

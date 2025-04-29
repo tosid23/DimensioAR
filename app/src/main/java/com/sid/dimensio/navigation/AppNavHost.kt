@@ -1,10 +1,15 @@
 package com.sid.dimensio.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.sid.home.domain.HomeViewModel
+import com.sid.home.ui.HomeScreen
+import com.sid.measure.domain.MeasureViewModel
+import com.sid.measure.ui.MeasureScreen
 
 @Composable
 fun AppNavHost(
@@ -15,17 +20,17 @@ fun AppNavHost(
         startDestination = Home.route,
     ) {
         composable(route = Home.route) {
-//            HomeScreen(
-//                viewModel = hiltViewModel<HomeViewModel>(),
-//                onClickCreate = {
-//                    navController.navigateSingleTopTo(Genesis.route)
-//                }
-//            )
+            HomeScreen(
+                viewModel = hiltViewModel<HomeViewModel>(),
+                onClickCreate = {
+                    navController.navigateSingleTopTo(Measure.route)
+                }
+            )
         }
         composable(route = Measure.route) {
-//            GenesisScreen(viewModel = hiltViewModel<GenesisViewModel>(), onBackPressed = {
-//                navController.popBackStack()
-//            })
+            MeasureScreen(viewModel = hiltViewModel<MeasureViewModel>(), onBackPressed = {
+                navController.popBackStack()
+            })
         }
     }
 }
