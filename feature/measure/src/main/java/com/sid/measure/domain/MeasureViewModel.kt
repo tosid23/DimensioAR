@@ -2,13 +2,16 @@ package com.sid.measure.domain
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sid.data.data.usecase.CheckArCoreSupportUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MeasureViewModel @Inject constructor() : ViewModel() {
+class MeasureViewModel @Inject constructor(
+    private val checkArCoreSupportUseCase: CheckArCoreSupportUseCase
+) : ViewModel() {
     internal var uiState = MutableStateFlow<UiState>(UiState.EmptyState)
         private set
 
@@ -18,7 +21,12 @@ class MeasureViewModel @Inject constructor() : ViewModel() {
 
     private fun start() {
         viewModelScope.launch {
-            uiState.emit(UiState.MeasureState)
+            val isArCoreSupported = checkArCoreSupportUseCase()
+            if (isArCoreSupported){
+                uiState.emit(UiState.MeasureState)
+            }else{
+                uiState.emit(UiState.ARNotSupportedState)
+            }
         }
     }
 }

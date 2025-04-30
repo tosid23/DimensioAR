@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,9 +34,15 @@ fun MeasureScreen(
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             when (state) {
-                UiState.EmptyState -> EmptyState()
+                UiState.EmptyState -> EmptyLayout()
+                UiState.ARNotSupportedState -> ARNotSupportedLayout()
                 UiState.MeasureState -> {
-
+                    Box(
+                        Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text("Yay! 🥳 AR is supported on this device")
+                    }
                 }
             }
         }
@@ -43,11 +50,21 @@ fun MeasureScreen(
 }
 
 @Composable
-internal fun EmptyState() {
+internal fun EmptyLayout() {
     Box(
         Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
+        Text("Empty")
+    }
+}
 
+@Composable
+internal fun ARNotSupportedLayout() {
+    Box(
+        Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Text("Oops! 😬AR is not supported on this device")
     }
 }

@@ -1,4 +1,4 @@
-package com.sid.data
+package com.sid.data.data.usecase
 
 import com.sid.data.data.entity.MeasurementEntity
 import com.sid.data.data.repository.MeasurementRepository

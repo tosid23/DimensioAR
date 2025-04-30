@@ -65,8 +65,6 @@ dependencies {
     implementation(libs.timber)
 
     implementation(libs.androidx.arcore)
-    implementation(libs.androidx.arcore.ktx)
-    implementation(libs.androidx.arcore.core)
 
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.hilt.android)
