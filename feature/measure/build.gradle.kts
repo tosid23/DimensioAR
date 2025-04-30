@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.sid.measure"
-    compileSdk= libs.versions.compile.sdk.version.get().toInt()
+    compileSdk = libs.versions.compile.sdk.version.get().toInt()
 
     defaultConfig {
         minSdk = libs.versions.min.sdk.version.get().toInt()
@@ -63,6 +63,10 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
     implementation(libs.timber)
+
+    implementation(libs.androidx.arcore)
+    implementation(libs.androidx.arcore.ktx)
+    implementation(libs.androidx.arcore.core)
 
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.hilt.android)
