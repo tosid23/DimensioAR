@@ -16,6 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sid.data.data.entity.MeasurementEntity
+import com.sid.data.data.entity.dummyMeasurements
 
 @Composable
 internal fun HomeLayout(measurements: List<MeasurementEntity>) {
@@ -58,49 +59,6 @@ internal fun ExistingMeasurement(measurements: List<MeasurementEntity>) {
 @Preview(showBackground = true)
 @Composable
 fun HomeLayoutPreview() {
-    // Dummy data for preview
-    val dummyMeasurements = listOf(
-        MeasurementEntity(
-            name = "Measurement 1",
-            timestamp = 1678886400,
-            measurementType = "Distance",
-            resultValue = 10.5,
-            resultUnit = "meters",
-            arPoints = null
-        ),
-        MeasurementEntity(
-            name = "Measurement 2",
-            timestamp = 1678972800,
-            measurementType = "Height",
-            resultValue = 1.8,
-            resultUnit = "meters",
-            arPoints = null
-        ),
-        MeasurementEntity(
-            name = "Measurement 3",
-            timestamp = 1679059200,
-            measurementType = "Distance",
-            resultValue = 5.2,
-            resultUnit = "meters",
-            arPoints = null
-        ),
-        MeasurementEntity(
-            name = "Measurement 4",
-            timestamp = 1679145600,
-            measurementType = "Width",
-            resultValue = 2.5,
-            resultUnit = "meters",
-            arPoints = null
-        ),
-        MeasurementEntity(
-            name = "Measurement 5",
-            timestamp = 1679232000,
-            measurementType = "Distance",
-            resultValue = 8.0,
-            resultUnit = "meters",
-            arPoints = null
-        ),
-    )
     MaterialTheme {
         HomeLayout(measurements = dummyMeasurements)
     }

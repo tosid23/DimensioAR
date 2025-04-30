@@ -37,3 +37,46 @@ data class MeasurementEntity(
     @ColumnInfo(name = "thumbnail_uri")
     val thumbnailUri: String? = null // Optional image reference
 )
+
+val dummyMeasurements = listOf(
+    MeasurementEntity(
+        name = "Measurement 1",
+        timestamp = 1678886400,
+        measurementType = "Distance",
+        resultValue = 10.5,
+        resultUnit = "meters",
+        arPoints = null
+    ),
+    MeasurementEntity(
+        name = "Measurement 2",
+        timestamp = 1678972800,
+        measurementType = "Height",
+        resultValue = 1.8,
+        resultUnit = "meters",
+        arPoints = null
+    ),
+    MeasurementEntity(
+        name = "Measurement 3",
+        timestamp = 1679059200,
+        measurementType = "Distance",
+        resultValue = 5.2,
+        resultUnit = "meters",
+        arPoints = null
+    ),
+    MeasurementEntity(
+        name = "Measurement 4",
+        timestamp = 1679145600,
+        measurementType = "Width",
+        resultValue = 2.5,
+        resultUnit = "meters",
+        arPoints = null
+    ),
+    MeasurementEntity(
+        name = "Measurement 5",
+        timestamp = 1679232000,
+        measurementType = "Distance",
+        resultValue = 8.0,
+        resultUnit = "meters",
+        arPoints = null
+    ),
+)
