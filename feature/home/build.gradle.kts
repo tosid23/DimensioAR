@@ -43,6 +43,7 @@ dependencies {
 
     implementation(project(":core:designsystem"))
     implementation(project(":core:widgets"))
+    implementation(project(":core:data"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -62,6 +63,10 @@ dependencies {
 
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.hilt.android)
+    implementation(libs.androidx.benchmark.common)
+    implementation(libs.androidx.lifecycle.viewmodel.android)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
     ksp(libs.hilt.compiler)
     implementation(platform(libs.android.firebase.bom))
     implementation(libs.android.firebase.config)

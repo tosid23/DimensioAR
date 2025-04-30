@@ -43,6 +43,7 @@ dependencies {
 
     implementation(project(":core:designsystem"))
     implementation(project(":core:widgets"))
+    implementation(project(":core:data"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -57,6 +58,9 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.ui.tooling.preview.android)
+    implementation(libs.androidx.benchmark.common)
+    implementation(libs.androidx.lifecycle.viewmodel.android)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
     implementation(libs.timber)
 
