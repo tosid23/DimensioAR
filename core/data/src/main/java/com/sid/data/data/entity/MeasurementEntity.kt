@@ -1,10 +1,12 @@
-package com.sid.data
+package com.sid.data.data.entity
 
 import androidx.annotation.Keep
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
+import com.sid.data.data.entity.Point3D
+import com.sid.data.data.converter.PointListConverter
 
 @Keep
 @Entity(tableName = "measurements")

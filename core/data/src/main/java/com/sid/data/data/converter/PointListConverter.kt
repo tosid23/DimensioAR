@@ -1,8 +1,9 @@
-package com.sid.data
+package com.sid.data.data.converter
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.sid.data.data.entity.Point3D
 import java.lang.reflect.Type
 
 /**

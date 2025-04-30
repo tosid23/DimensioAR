@@ -1,4 +1,4 @@
-package com.sid.data
+package com.sid.data.data.model
 
 enum class DistanceUnit {
     /**

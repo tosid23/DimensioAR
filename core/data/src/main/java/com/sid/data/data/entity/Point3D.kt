@@ -1,4 +1,4 @@
-package com.sid.data
+package com.sid.data.data.entity
 
 /**
  * Represents a point in 3D space, typically captured from an AR session.
