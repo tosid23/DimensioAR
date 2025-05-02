@@ -2,7 +2,7 @@ package com.sid.home.domain
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sid.data.data.usecase.GetAllMeasurementsUseCase
+import com.sid.home.data.usecase.GetAllMeasurementsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

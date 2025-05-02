@@ -1,4 +1,4 @@
-package com.sid.data.data.repository
+package com.sid.home.data.repository
 
 import com.sid.data.data.dao.MeasurementDao
 import com.sid.data.data.entity.MeasurementEntity

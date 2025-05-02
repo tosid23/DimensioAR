@@ -3,11 +3,10 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlinAndroidKsp)
     alias(libs.plugins.hilt)
-    alias(libs.plugins.kotlin.compose)
 }
 
 android {
-    namespace = "com.sid.measure"
+    namespace = "com.sid.common"
     compileSdk = libs.versions.compile.sdk.version.get().toInt()
 
     defaultConfig {
@@ -26,10 +25,6 @@ android {
             )
         }
     }
-    buildFeatures {
-        compose = true
-        buildConfig = true
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -41,38 +36,22 @@ android {
 
 dependencies {
 
-    implementation(project(":core:designsystem"))
-    implementation(project(":core:widgets"))
-    implementation(project(":core:data"))
-    implementation(project(":core:common"))
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-
     implementation(libs.material)
-    implementation(libs.androidx.material3)
-    implementation(libs.androidx.material3.icons)
 
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.paging)
+    implementation(libs.androidx.room.testing)
+    ksp(libs.androidx.room.compiler)
 
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
-    implementation(libs.androidx.ui.tooling.preview.android)
-    implementation(libs.androidx.benchmark.common)
-    implementation(libs.androidx.lifecycle.viewmodel.android)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.gson)
 
-    implementation(libs.timber)
-
-    implementation(libs.androidx.arcore)
-
-    implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
-    implementation(platform(libs.android.firebase.bom))
-    implementation(libs.android.firebase.config)
-    implementation(libs.android.firebase.analytics)
+
+    implementation(libs.androidx.arcore)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

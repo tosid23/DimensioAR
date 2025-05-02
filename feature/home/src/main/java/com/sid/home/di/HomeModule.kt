@@ -1,7 +1,7 @@
 package com.sid.home.di
 
-import com.sid.data.data.repository.MeasurementRepository
-import com.sid.data.data.repository.MeasurementRepositoryImpl
+import com.sid.home.data.repository.MeasurementRepository
+import com.sid.home.data.repository.MeasurementRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

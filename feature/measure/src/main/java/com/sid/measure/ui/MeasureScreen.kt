@@ -1,5 +1,10 @@
 package com.sid.measure.ui
 
+import android.Manifest
+import android.app.Activity
+import android.content.pm.PackageManager
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,10 +21,13 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.sid.measure.domain.MeasureViewModel
@@ -33,6 +41,17 @@ fun MeasureScreen(
 ) {
 
     val state = viewModel.uiState.collectAsStateWithLifecycle().value
+    val context = LocalContext.current
+    val activity = context as Activity
+    val cameraPermissionLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        viewModel.onPermissionResult(activity, isGranted)
+    }
+
+    LaunchedEffect(key1 = Unit) {
+        viewModel.start(activity)
+    }
 
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
@@ -45,7 +64,18 @@ fun MeasureScreen(
         ) {
             when (state) {
                 UiState.EmptyState -> EmptyLayout()
+                UiState.CameraPermissionNotGrantedState -> {
+                    if (ContextCompat.checkSelfPermission(
+                            activity,
+                            Manifest.permission.CAMERA
+                        ) != PackageManager.PERMISSION_GRANTED
+                    ) {
+                        cameraPermissionLauncher.launch(Manifest.permission.CAMERA)
+                    }
+                }
+
                 UiState.ARNotSupportedState -> ARNotSupportedLayout()
+                UiState.ArCoreNotInstalledState -> ARNotInstalledLayout()
                 UiState.MeasureState -> {
                     Box(
                         Modifier.fillMaxSize(),
@@ -92,5 +122,15 @@ private fun ARNotSupportedLayout() {
         contentAlignment = Alignment.Center
     ) {
         Text("Oops! 😬AR is not supported on this device")
+    }
+}
+
+@Composable
+private fun ARNotInstalledLayout() {
+    Box(
+        Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Text("Oops! 😬AR is not installed on this device")
     }
 }
