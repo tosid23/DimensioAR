@@ -1,7 +1,7 @@
 package com.sid.measure.di
 
-import com.sid.data.data.repository.ArCoreRepository
-import com.sid.data.data.repository.ArCoreRepositoryImpl
+import com.sid.measure.data.repository.ArCoreRepository
+import com.sid.measure.data.repository.ArCoreRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

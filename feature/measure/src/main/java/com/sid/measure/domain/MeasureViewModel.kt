@@ -2,7 +2,7 @@ package com.sid.measure.domain
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sid.data.data.usecase.CheckArCoreSupportUseCase
+import com.sid.measure.data.usecase.CheckArCoreSupportUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch

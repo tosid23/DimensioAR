@@ -1,6 +1,6 @@
-package com.sid.data.data.usecase
+package com.sid.measure.data.usecase
 
-import com.sid.data.data.repository.ArCoreRepository
+import com.sid.measure.data.repository.ArCoreRepository
 import jakarta.inject.Inject
 
 class CheckArCoreSupportUseCase @Inject constructor(
