@@ -24,6 +24,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.sid.home.domain.HomeViewModel
 import com.sid.home.domain.UiState
+import com.sid.widgets.EmptyLayout
+import com.sid.widgets.LoadingLayout
 
 @Composable
 fun HomeScreen(
@@ -45,8 +47,8 @@ fun HomeScreen(
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             when (state) {
-                UiState.EmptyState -> EmptyState()
-                UiState.Loading -> LoadingState()
+                UiState.EmptyState -> EmptyLayout()
+                UiState.Loading -> LoadingLayout()
                 is UiState.HomeState -> {
                     HomeLayout(measurements = state.measurements)
                 }
@@ -81,22 +83,3 @@ private fun Fab(onClickCreate: () -> Unit = {}) {
     }
 }
 
-@Composable
-private fun EmptyState() {
-    Box(
-        Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(text = "Empty")
-    }
-}
-
-@Composable
-private fun LoadingState() {
-    Box(
-        Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(text = "Loading")
-    }
-}

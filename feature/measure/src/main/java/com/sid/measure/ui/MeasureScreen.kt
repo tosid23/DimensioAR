@@ -24,6 +24,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.sid.measure.domain.MeasureViewModel
 import com.sid.measure.domain.UiState
+import com.sid.widgets.EmptyLayout
 
 @Composable
 fun MeasureScreen(
@@ -82,16 +83,6 @@ private fun TopBar(onBackPressed: () -> Unit = {}) {
             titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
         )
     )
-}
-
-@Composable
-private fun EmptyLayout() {
-    Box(
-        Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Text("Empty")
-    }
 }
 
 @Composable
