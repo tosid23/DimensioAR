@@ -67,6 +67,8 @@ dependencies {
 
     implementation(libs.androidx.arcore)
 
+    implementation(libs.accompanist.permissions)
+
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
